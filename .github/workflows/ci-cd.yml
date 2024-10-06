@@ -27,6 +27,3 @@ jobs:
           terraform init
           terraform apply -auto-approve
           # terraform destroy
-      - name: Output Public IP
-        run: |
-          echo "Public IP: $(terraform output -raw public_ip)"
