@@ -22,8 +22,11 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-                          # cd terraform
-                          # terraform init
-                          # terraform apply -auto-approve
         run: |
-          terraform destroy 
+          cd terraform
+          terraform init
+          terraform apply -auto-approve
+          # terraform destroy
+      - name: Output Public IP
+        run: |
+          echo "Public IP: $(terraform output -raw public_ip)"
